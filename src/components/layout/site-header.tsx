@@ -14,8 +14,9 @@ export function SiteHeader() {
           <span className={styles.name}>Chavidu Bandara</span>
         </Link>
         <div className={styles.controls}>
-          <nav aria-label="Main navigation">
+          <nav className={styles.navigation} aria-label="Main navigation">
             <a className={styles.navLink} href="#about">About</a>
+            <a className={styles.navLink} href="#projects">Projects</a>
           </nav>
           <ThemeToggle />
         </div>

@@ -1,0 +1,151 @@
+.projects {
+  padding-block: 6rem 7rem;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 2rem;
+}
+
+.heading {
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 550;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+}
+
+.title {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 450;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  color: var(--accent);
+}
+
+.introduction {
+  max-width: 35rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.project {
+  min-width: 0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.75rem;
+}
+
+.revealButton {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+}
+
+.revealButton svg {
+  color: var(--accent);
+}
+
+.revealButton:hover,
+.revealButton:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.count {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .revealButton:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Like About, scroll motion is an enhancement that never hides content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .heading,
+    .project {
+      animation: arrive linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes arrive {
+  from {
+    transform: translateY(16px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 959px) {
+  .projects {
+    padding-block: 4.5rem 5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 699px) {
+  .projects {
+    padding-block: 3.5rem 4rem;
+  }
+
+  .heading {
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}

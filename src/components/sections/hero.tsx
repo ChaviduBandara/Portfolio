@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import Image from "next/image";
+import { ArrowDownRight } from "lucide-react";
 import styles from "./hero.module.css";
 
 export function Hero() {
@@ -22,6 +23,10 @@ export function Hero() {
           </span>
         </h1>
         <p className={styles.supportingLine}>Web · Full Stack · AI</p>
+        <a href="#projects" className={styles.viewProjects}>
+          View Projects
+          <ArrowDownRight size={18} aria-hidden="true" />
+        </a>
       </div>
 
       <figure className={styles.portrait}>

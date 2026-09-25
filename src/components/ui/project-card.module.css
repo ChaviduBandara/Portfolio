@@ -1,0 +1,300 @@
+.card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+}
+
+.visual {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: calc(1.25rem - 1px) calc(1.25rem - 1px) 0 0;
+  background-color: var(--accent-soft);
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--accent) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 7%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.visualLabel,
+.number {
+  position: absolute;
+  z-index: 1;
+  color: var(--muted);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.visualLabel {
+  top: 1.125rem;
+  left: 1.25rem;
+}
+
+.number {
+  right: 1.25rem;
+  bottom: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.scene {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 140px;
+  transform: translate(-50%, -45%);
+  transition: transform 350ms ease;
+}
+
+.shapeOne,
+.shapeTwo,
+.shapeThree {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.glyph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  transform: translate(-50%, -50%);
+  color: var(--foreground);
+}
+
+/* Layered inventory blocks. */
+.inventory .shapeOne,
+.inventory .shapeTwo,
+.inventory .shapeThree {
+  top: 25px;
+  left: 43px;
+  width: 114px;
+  height: 90px;
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.inventory .shapeOne {
+  transform: translate(-25px, -9px) rotate(-22deg);
+}
+
+.inventory .shapeTwo {
+  transform: translate(22px, 7px) rotate(18deg);
+}
+
+.inventory .shapeThree {
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+}
+
+/* An inspection field around a cup-shaped form. */
+.inspection .shapeOne {
+  inset: 3px 33px;
+  border-radius: 50%;
+}
+
+.inspection .shapeTwo {
+  inset: 21px 8px;
+  border-style: dashed;
+  border-radius: 12px;
+}
+
+.inspection .shapeThree {
+  top: 29px;
+  left: 60px;
+  width: 80px;
+  height: 88px;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent) 40%, var(--surface));
+}
+
+/* Parallel lanes joining at a shared processing node. */
+.threads .shapeOne {
+  inset: 23px 8px;
+  border-radius: 28px;
+}
+
+.threads .shapeTwo {
+  top: 69px;
+  left: 0;
+  width: 200px;
+  height: 1px;
+}
+
+.threads .shapeThree {
+  inset: 29px 59px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: -79px 0 0 -24px var(--accent), 79px 0 0 -24px var(--accent);
+}
+
+.threads .glyph {
+  color: var(--accent);
+}
+
+/* A winding game path and a gesture marker. */
+.gesture .shapeOne {
+  top: 25px;
+  left: 19px;
+  width: 107px;
+  height: 90px;
+  border-width: 12px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0 0 0 24px;
+}
+
+.gesture .shapeTwo {
+  top: 17px;
+  left: 13px;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: var(--accent);
+}
+
+.gesture .shapeThree {
+  top: 22px;
+  right: 6px;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.gesture .glyph {
+  left: 142px;
+  top: 74px;
+}
+
+/* A stack of records with an abstract database symbol. */
+.records .shapeOne,
+.records .shapeTwo,
+.records .shapeThree {
+  top: 23px;
+  left: 40px;
+  width: 120px;
+  height: 90px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.records .shapeOne {
+  transform: translate(-14px, -9px) rotate(-9deg);
+}
+
+.records .shapeTwo {
+  transform: translate(13px, 10px) rotate(8deg);
+}
+
+.records .shapeThree {
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+}
+
+/* Warm concentric forms, inspired by a cup and saucer. */
+.cafe .shapeOne {
+  inset: 0 30px;
+  border-radius: 50%;
+}
+
+.cafe .shapeTwo {
+  inset: 15px 45px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+}
+
+.cafe .shapeThree {
+  top: 112px;
+  left: 22px;
+  width: 156px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.title {
+  min-height: 4.5rem;
+  font-size: 1.25rem;
+  font-weight: 550;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 0.375rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.description {
+  margin-block: 1rem 1.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  list-style: none;
+}
+
+.tags li {
+  max-width: 100%;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--background);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.card:focus-visible {
+  border-color: var(--accent);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card:focus-visible .scene {
+    transform: translate(-50%, -45%) scale(1.04);
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -24px color-mix(in srgb, var(--foreground) 30%, transparent);
+    }
+
+    .card:hover .scene {
+      transform: translate(-50%, -45%) scale(1.04);
+    }
+  }
+}
