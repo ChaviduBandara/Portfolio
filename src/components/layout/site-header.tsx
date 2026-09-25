@@ -13,7 +13,12 @@ export function SiteHeader() {
           <span className={styles.monogram} aria-hidden="true">cb<span>.</span></span>
           <span className={styles.name}>Chavidu Bandara</span>
         </Link>
-        <ThemeToggle />
+        <div className={styles.controls}>
+          <nav aria-label="Main navigation">
+            <a className={styles.navLink} href="#about">About</a>
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
