@@ -67,6 +67,33 @@
   content: "";
 }
 
+.viewProjects {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #211a16;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.viewProjects:hover,
+.viewProjects:focus-visible {
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .viewProjects:hover {
+    transform: translateY(-2px);
+  }
+}
+
 .portrait {
   width: 100%;
   min-width: 0;

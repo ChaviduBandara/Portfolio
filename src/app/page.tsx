@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
+import { Projects } from "@/components/sections/projects";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
+        <Projects />
       </main>
     </>
   );

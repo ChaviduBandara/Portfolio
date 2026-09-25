@@ -40,6 +40,12 @@
   gap: clamp(0.5rem, 2.5vw, 1.5rem);
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+}
+
 .navLink {
   display: inline-flex;
   min-height: 2.75rem;
@@ -97,7 +103,7 @@
   }
 }
 
-@media (max-width: 359px) {
+@media (max-width: 479px) {
   .name {
     display: none;
   }
