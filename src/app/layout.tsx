@@ -10,8 +10,8 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineering Portfolio",
-  description: "A personal software engineering portfolio featuring projects, experience, and ways to connect.",
+  title: "Chavidu Bandara | Software Engineer",
+  description: "Chavidu Bandara — Software Engineer based in Sri Lanka. Web, Full Stack, and AI. I build systems people remember.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

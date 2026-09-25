@@ -1,0 +1,288 @@
+.hero {
+  display: grid;
+  min-height: calc(100svh - 6rem);
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 4rem);
+  padding-block: 4.5rem 5.5rem;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.introduction {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.075em;
+}
+
+.introDot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  margin-right: 0.25rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.headline {
+  font-size: clamp(4rem, 7.2vw, 6.5rem);
+  font-weight: 450;
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+  overflow-wrap: break-word;
+}
+
+.line {
+  display: block;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.supportingLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.supportingLine::before {
+  width: 2rem;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--accent);
+  content: "";
+}
+
+.portrait {
+  width: 100%;
+  min-width: 0;
+}
+
+.portraitFrame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--accent-soft);
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center;
+}
+
+.placeholder,
+.artwork {
+  position: absolute;
+  inset: 0;
+}
+
+.artwork {
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, transparent 45%, color-mix(in srgb, var(--accent) 10%, transparent)),
+    color-mix(in srgb, var(--accent-soft) 72%, var(--background));
+}
+
+.artwork::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  border-radius: 50% 50% 0 0;
+  margin: 15% 9% -1px;
+  content: "";
+}
+
+.artworkInitials,
+.artworkCross,
+.artworkLabel {
+  position: absolute;
+  z-index: 3;
+  color: var(--muted);
+}
+
+.artworkInitials {
+  top: 6%;
+  left: 8%;
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: 0.1em;
+}
+
+.artworkCross {
+  top: 5%;
+  right: 8%;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.artworkLabel {
+  bottom: 6%;
+  left: 8%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  background: var(--background);
+  font-size: 0.6875rem;
+  letter-spacing: 0.025em;
+}
+
+.orbit {
+  position: absolute;
+  top: 21%;
+  left: 9%;
+  width: 82%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  border-radius: 50%;
+}
+
+.disc {
+  position: absolute;
+  top: 24%;
+  left: 17%;
+  width: 66%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 18%, var(--accent-soft));
+}
+
+.head,
+.neck,
+.shoulders {
+  position: absolute;
+  background: linear-gradient(115deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--foreground)));
+}
+
+.head {
+  top: 29%;
+  left: 36%;
+  width: 29%;
+  height: 29%;
+  transform: rotate(-8deg);
+  border-radius: 46% 47% 44% 43%;
+}
+
+.neck {
+  top: 51%;
+  left: 44%;
+  width: 15%;
+  height: 17%;
+  transform: rotate(-8deg);
+  border-radius: 30%;
+}
+
+.shoulders {
+  bottom: -13%;
+  left: 10%;
+  width: 84%;
+  height: 53%;
+  transform: rotate(-8deg);
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  border-radius: 45% 48% 0 0;
+  background: linear-gradient(125deg, color-mix(in srgb, var(--accent) 55%, var(--foreground)), color-mix(in srgb, var(--accent) 16%, var(--background)));
+}
+
+.caption {
+  padding: 1.25rem 0.25rem 0;
+}
+
+.captionName {
+  font-size: 0.875rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+}
+
+.captionRole {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .portraitFrame:hover {
+    transform: translateY(-4px) rotate(0.5deg);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+    box-shadow: 0 16px 36px -24px color-mix(in srgb, var(--foreground) 30%, transparent);
+  }
+}
+
+/* Move content gently into place without ever hiding the text. */
+@media (prefers-reduced-motion: no-preference) {
+  .copy {
+    animation: settle 650ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+
+  .portrait {
+    animation: settle 800ms 100ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: translateY(14px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 959px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.5rem;
+    padding-block: 4rem;
+  }
+
+  .headline {
+    font-size: clamp(2.6rem, 11.5vw, 5.5rem);
+  }
+
+  .portrait {
+    max-width: 27.5rem;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 599px) {
+  .hero {
+    gap: 3rem;
+    padding-block: 3rem;
+  }
+
+  .introduction {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.035em;
+  }
+
+  .supportingLine {
+    margin-top: 1.75rem;
+    font-size: 0.875rem;
+  }
+
+  .portraitFrame {
+    border-radius: 1.25rem;
+  }
+}
