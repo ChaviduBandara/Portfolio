@@ -1,6 +1,6 @@
 # Software Engineering Portfolio
 
-Chavidu Bandara's portfolio, built with Next.js. The current page contains a responsive header and hero with light/dark themes. Other portfolio sections and their links will be added in a later step.
+Chavidu Bandara's portfolio, built with Next.js. The current page contains a responsive header, hero, and About section with light/dark themes. The header's About link scrolls to the introduction and three career highlights. Projects, Skills, and Contact will be added in later steps.
 
 ## Local development
 
@@ -9,6 +9,12 @@ npm.cmd run dev
 ```
 
 Open http://localhost:3000 in your browser.
+
+## About section
+
+The CV-based introduction and education/experience highlights live in `src/components/sections/about.tsx`. The section uses the existing design tokens, responsive cards, and subtle hover and scroll effects. Motion effects respect reduced-motion settings; browsers without scroll-animation support show the content normally.
+
+No Download CV button is displayed because `public/documents` does not currently contain a CV for publication.
 
 ## Profile photo
 
