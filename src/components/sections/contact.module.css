@@ -50,64 +50,76 @@
   line-height: 1.8;
 }
 
-.emailBlock {
-  margin-top: 2.75rem;
+.contactCards {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 2.25rem;
+  list-style: none;
 }
 
-.linkLabel {
-  margin-bottom: 0.75rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-}
-
-.emailLink {
-  display: inline-flex;
-  min-height: 2.75rem;
+.contactCard {
+  display: flex;
+  width: 100%;
+  min-height: 5.5rem;
   align-items: center;
-  gap: 0.75rem;
-  max-width: 100%;
-  border-radius: 0.25rem;
-  font-size: clamp(0.875rem, 1.5vw, 1.0625rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 0.3rem;
+  gap: 1rem;
+  padding: 1.125rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--foreground);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
-.emailLink span {
-  overflow-wrap: anywhere;
+.contactCard:hover,
+.contactCard:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
+  box-shadow: 0 8px 24px -14px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
-.emailLink svg {
+.cardIcon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
   flex-shrink: 0;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
-.emailLink:hover,
-.emailLink:focus-visible {
-  text-decoration-line: underline;
+.cardText {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.copyButton {
-  display: flex;
-  min-height: 2.75rem;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
-  border-radius: 0.25rem;
+.cardLabel {
   color: var(--muted);
   font-size: 0.75rem;
-  cursor: pointer;
-  transition: color 200ms ease;
+  line-height: 1.5;
 }
 
-.copyButton:hover,
-.copyButton:focus-visible {
-  color: var(--foreground);
+.cardValue {
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  font-weight: 550;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.cardAction {
+  flex-shrink: 0;
+  color: var(--muted);
 }
 
 .copyStatus {
-  max-width: 25rem;
+  min-height: 1.25rem;
+  margin-top: 0.875rem;
   color: var(--muted);
   font-size: 0.75rem;
   line-height: 1.7;
@@ -124,41 +136,10 @@
   font-size: 1rem;
 }
 
-.socialLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  list-style: none;
-}
-
-.socialLinks a {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.625rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  transition: border-color 200ms ease, transform 200ms ease;
-}
-
-.socialLinks svg {
-  color: var(--accent);
-}
-
-.socialLinks a:hover,
-.socialLinks a:focus-visible {
-  border-color: var(--accent);
-}
-
 .form {
   min-width: 0;
   padding: clamp(1.25rem, 3vw, 2.5rem);
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
   border-radius: 1.25rem;
   background: var(--surface);
 }
@@ -175,6 +156,13 @@
   color: var(--muted);
   font-size: 0.8125rem;
   line-height: 1.7;
+}
+
+.formFields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .fieldRow {
@@ -236,21 +224,15 @@
   background: var(--accent-soft);
 }
 
-.formActions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.draftButton {
+.sendButton {
   display: inline-flex;
+  width: 100%;
   min-height: 3.25rem;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 0.875rem;
   padding: 0.75rem 1.125rem;
+  margin-top: 1.5rem;
   border: 1px solid var(--accent);
   border-radius: 999px;
   background: var(--accent);
@@ -261,25 +243,41 @@
   transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
-.draftButton:hover,
-.draftButton:focus-visible {
+.sendButton:hover:not(:disabled),
+.sendButton:focus-visible {
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
-.draftHelp,
-.fallbackHelp {
+.sendButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.fieldHelp {
   color: var(--muted);
   font-size: 0.75rem;
   line-height: 1.7;
 }
 
-.fallbackHelp {
-  margin-top: 1.25rem;
+.submissionStatus {
+  display: flex;
+  min-height: 1.375rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.submissionStatus svg {
+  flex-shrink: 0;
+  color: var(--accent);
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .socialLinks a:hover,
-  .draftButton:hover {
+  .contactCard:hover,
+  .sendButton:hover:not(:disabled) {
     transform: translateY(-2px);
   }
 }
@@ -308,11 +306,6 @@
 @media (max-width: 1099px) {
   .fieldRow {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .formActions {
-    align-items: flex-start;
-    flex-direction: column;
   }
 }
 
