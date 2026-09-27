@@ -46,7 +46,7 @@
 }
 
 .highlight {
-  color: var(--accent);
+  color: var(--accent-heading);
 }
 
 .supportingLine {

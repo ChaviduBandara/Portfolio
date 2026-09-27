@@ -10,7 +10,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:border-accent hover:text-accent"
+      className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:border-accent hover:text-[var(--accent-ink)]"
       title="Toggle color theme"
     >
       <Moon className="theme-toggle__moon size-5" aria-hidden="true" />

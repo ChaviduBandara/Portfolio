@@ -63,3 +63,15 @@ npm.cmd run build
 The project uses the App Router, TypeScript, Tailwind CSS, and `next-themes`. Design tokens are defined in `src/app/globals.css`.
 
 The contact API tests exercise validation, configuration checks, provider failures, and the outgoing email payload through the real Resend SDK with network calls mocked. They do not send email or require real credentials.
+
+## Metadata and browser identity
+
+`src/app/layout.tsx` defines the portfolio title, future-page title template, description, author, creator, keywords, index/follow settings, and Open Graph/Twitter cards. `src/app/opengraph-image.tsx` generates the 1200 × 630 sharing image with `ImageResponse` at build time using its bundled font. The Twitter card reuses that image. `src/app/icon.svg` and its 16/32/48px `favicon.ico` counterpart provide the cb. browser identity.
+
+No canonical URL, production domain, or `metadataBase` is configured yet. Next.js consequently warns that social-image URLs use its localhost fallback. Once the final public URL is known, set `metadataBase`, the homepage canonical, and `openGraph.url`, then rebuild. Add a sitemap with that same origin and confirm the public sharing-image URLs and crawler access after deployment.
+
+## Accessibility and performance
+
+The light theme uses darker orange variants for large text, small interactive text, and focus outlines; orange fills and decoration keep the original accent. Form borders and small project labels also have sufficient contrast against their backgrounds. All motion, including the header logo hover, respects reduced-motion preferences.
+
+The portrait has a reserved square frame, responsive sizes, eager loading, and high fetch priority. Geist is self-hosted by `next/font` with a preloaded Latin subset. Below-the-fold project illustrations are CSS, with no extra image downloads; the other three projects are mounted only when requested. Interactive client components remain limited to theme state, project expansion, the contact form, and footer controls. The unused `motion` dependency has been removed; existing animations continue to use CSS.

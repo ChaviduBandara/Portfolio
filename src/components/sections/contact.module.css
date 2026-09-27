@@ -39,7 +39,7 @@
 }
 
 .title span {
-  color: var(--accent);
+  color: var(--accent-heading);
 }
 
 .invitation {
@@ -130,7 +130,7 @@
   max-width: 25rem;
   margin-top: 0.75rem;
   padding: 0.75rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--input-border);
   border-radius: 0.5rem;
   background: var(--surface);
   font-size: 1rem;
@@ -189,7 +189,7 @@
   width: 100%;
   min-height: 3rem;
   padding: 0.75rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--input-border);
   border-radius: 0.5rem;
   background: var(--background);
   color: var(--foreground);
@@ -206,7 +206,7 @@
 .field input:focus-visible,
 .field textarea:focus-visible,
 .field [aria-invalid="true"] {
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
 }
 
 .error,

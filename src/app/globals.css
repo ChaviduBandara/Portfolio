@@ -7,8 +7,12 @@
   --foreground: #211a16;
   --muted: #716761;
   --accent: #ff6b35;
+  /* Accessible orange text and focus rings; decorative fills keep the accent. */
+  --accent-ink: #bf4214;
+  --accent-heading: #ed5b25;
   --accent-soft: #fff0e8;
   --border: #e9e1da;
+  --input-border: #92837a;
 }
 
 [data-theme="dark"] {
@@ -18,8 +22,11 @@
   --foreground: #f7f1e9;
   --muted: #b3a69b;
   --accent: #ff6b35;
+  --accent-ink: #ff6b35;
+  --accent-heading: #ff6b35;
   --accent-soft: #302016;
   --border: #332a24;
+  --input-border: #92837a;
 }
 
 @theme inline {
@@ -52,7 +59,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-ink);
   outline-offset: 3px;
 }
 

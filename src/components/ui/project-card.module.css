@@ -27,7 +27,8 @@
 .number {
   position: absolute;
   z-index: 1;
-  color: var(--muted);
+  /* Keep small labels readable even at the orange grid intersections. */
+  color: color-mix(in srgb, var(--muted) 90%, var(--foreground));
   font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.06em;
