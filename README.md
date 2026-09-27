@@ -30,11 +30,11 @@ The responsive layout uses one, two, or three columns. Hover and scroll effects 
 
 There is no email delivery service or server endpoint. Copy email address uses the clipboard when available; if access is blocked, a selected, read-only address field enables manual copying. No phone number is displayed.
 
-## Profile photo
+## Profile portrait
 
-Add your portrait at `public/images/profile.jpg`. The hero checks for this file on the server and uses `next/image` with descriptive alt text when it exists. Until then, it displays an original abstract portrait placeholder.
+The hero uses `public/images/profile-sketch.png` through `next/image`, with the alt text “Pencil sketch portrait of Chavidu Bandara”. The square frame and `object-fit: contain` preserve the full sketch, including its hair and shoulders.
 
-Use a portrait-oriented image (the frame is 4:5). After adding the file, restart the development server and refresh. For production, run a new build to replace the placeholder. Adjust `object-position` in `src/components/sections/hero.module.css` if the photo needs a different crop.
+The image retains its ivory paper background in both themes. The padded outer frame uses the existing light/dark palette, a subtle orange border, and a soft orange glow. Entrance and hover movement respect reduced-motion preferences.
 
 ## Verification
 

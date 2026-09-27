@@ -100,132 +100,27 @@
 }
 
 .portraitFrame {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  border: 1px solid var(--border);
+  padding: clamp(0.5rem, 1vw, 0.75rem);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 1.5rem;
-  background: var(--accent-soft);
+  background: color-mix(in srgb, var(--background) 70%, var(--surface));
+  box-shadow:
+    0 12px 32px -16px color-mix(in srgb, var(--accent) 22%, transparent),
+    0 0 28px -8px color-mix(in srgb, var(--accent) 10%, transparent);
   transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
 }
 
-.photo {
-  object-fit: cover;
-  object-position: center;
-}
-
-.placeholder,
-.artwork {
-  position: absolute;
-  inset: 0;
-}
-
-.artwork {
+.portraitImage {
+  position: relative;
+  aspect-ratio: 1;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, transparent 45%, color-mix(in srgb, var(--accent) 10%, transparent)),
-    color-mix(in srgb, var(--accent-soft) 72%, var(--background));
+  border-radius: 0.875rem;
+  /* The paper stays ivory in both themes, inside the theme-aware outer frame. */
+  background: #f7f3eb;
 }
 
-.artwork::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
-  border-radius: 50% 50% 0 0;
-  margin: 15% 9% -1px;
-  content: "";
-}
-
-.artworkInitials,
-.artworkCross,
-.artworkLabel {
-  position: absolute;
-  z-index: 3;
-  color: var(--muted);
-}
-
-.artworkInitials {
-  top: 6%;
-  left: 8%;
-  font-size: 0.75rem;
-  font-weight: 550;
-  letter-spacing: 0.1em;
-}
-
-.artworkCross {
-  top: 5%;
-  right: 8%;
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-.artworkLabel {
-  bottom: 6%;
-  left: 8%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 2rem;
-  background: var(--background);
-  font-size: 0.6875rem;
-  letter-spacing: 0.025em;
-}
-
-.orbit {
-  position: absolute;
-  top: 21%;
-  left: 9%;
-  width: 82%;
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
-  border-radius: 50%;
-}
-
-.disc {
-  position: absolute;
-  top: 24%;
-  left: 17%;
-  width: 66%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 18%, var(--accent-soft));
-}
-
-.head,
-.neck,
-.shoulders {
-  position: absolute;
-  background: linear-gradient(115deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--foreground)));
-}
-
-.head {
-  top: 29%;
-  left: 36%;
-  width: 29%;
-  height: 29%;
-  transform: rotate(-8deg);
-  border-radius: 46% 47% 44% 43%;
-}
-
-.neck {
-  top: 51%;
-  left: 44%;
-  width: 15%;
-  height: 17%;
-  transform: rotate(-8deg);
-  border-radius: 30%;
-}
-
-.shoulders {
-  bottom: -13%;
-  left: 10%;
-  width: 84%;
-  height: 53%;
-  transform: rotate(-8deg);
-  border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
-  border-radius: 45% 48% 0 0;
-  background: linear-gradient(125deg, color-mix(in srgb, var(--accent) 55%, var(--foreground)), color-mix(in srgb, var(--accent) 16%, var(--background)));
+.photo {
+  object-fit: contain;
 }
 
 .caption {
@@ -246,9 +141,11 @@
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .portraitFrame:hover {
-    transform: translateY(-4px) rotate(0.5deg);
+    transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
-    box-shadow: 0 16px 36px -24px color-mix(in srgb, var(--foreground) 30%, transparent);
+    box-shadow:
+      0 16px 36px -16px color-mix(in srgb, var(--accent) 28%, transparent),
+      0 0 32px -8px color-mix(in srgb, var(--accent) 14%, transparent);
   }
 }
 
