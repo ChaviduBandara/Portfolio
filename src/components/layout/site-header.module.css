@@ -84,12 +84,14 @@
 }
 
 @media (hover: hover) {
-  .brand:hover .monogram {
-    transform: rotate(-5deg);
-  }
-
   .brand:hover .name {
     color: var(--muted);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .brand:hover .monogram {
+    transform: rotate(-5deg);
   }
 }
 

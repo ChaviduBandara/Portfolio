@@ -142,7 +142,7 @@
 .brand:focus-visible,
 .navLink:hover,
 .navLink:focus-visible {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .navLink:hover,
@@ -156,7 +156,7 @@
 .backToTop:focus-visible {
   border-color: var(--accent);
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {

@@ -38,7 +38,7 @@
 }
 
 .title span {
-  color: var(--accent);
+  color: var(--accent-heading);
 }
 
 .copy {
