@@ -4,7 +4,7 @@ import styles from "./site-header.module.css";
 
 export function SiteHeader() {
   return (
-    <header className="page-container">
+    <header id="home" className="page-container">
       <a className={styles.skipLink} href="#main-content">
         Skip to content
       </a>

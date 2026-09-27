@@ -1,0 +1,191 @@
+.footer {
+  padding-block: 3rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.identity {
+  min-width: 0;
+  max-width: 24rem;
+}
+
+.brand {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.25rem;
+}
+
+.monogram {
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.09em;
+}
+
+.monogram span {
+  color: var(--accent);
+}
+
+.name {
+  font-size: 0.875rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin-top: 0.875rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.navigation,
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.navigation {
+  gap: 0.25rem clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.navLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-inline: 0.125rem;
+  border-radius: 0.25rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.4rem;
+}
+
+.socialLinks {
+  gap: 0.625rem;
+}
+
+.socialLink {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.copyright {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+.backToTop {
+  display: inline-flex;
+  min-height: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.backToTop svg {
+  color: var(--accent);
+}
+
+.brand,
+.navLink,
+.socialLink,
+.backToTop {
+  transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+}
+
+.brand:hover,
+.brand:focus-visible,
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--accent);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  text-decoration-line: underline;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible,
+.backToTop:hover,
+.backToTop:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .socialLink:hover,
+  .backToTop:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 699px) {
+  .footer {
+    padding-block: 2.5rem 1.25rem;
+  }
+
+  .topRow {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .links {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

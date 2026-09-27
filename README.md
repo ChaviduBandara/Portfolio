@@ -26,9 +26,25 @@ The responsive layout uses one, two, or three columns. Hover and scroll effects 
 
 ## Contact section
 
-`src/components/sections/contact.tsx` contains the published email, GitHub, and LinkedIn links and a required Name, Email, and Message form. The form validates empty/whitespace-only fields and email format, then opens a URL-encoded `mailto:` draft with the visitor's name, reply email, and message. The visitor must send it from their own email app. The form keeps its contents and never reports that a message was sent.
+`src/components/sections/contact.tsx` has three contact cards and a Name, Email, and Message form. The email card copies the address and briefly confirms it; if clipboard access is blocked, a selected, read-only field enables manual copying. LinkedIn and GitHub open in a new tab. No phone number is displayed.
 
-There is no email delivery service or server endpoint. Copy email address uses the clipboard when available; if access is blocked, a selected, read-only address field enables manual copying. No phone number is displayed.
+The form sends JSON to `src/app/api/contact/route.ts`, which sends a plain-text email through Resend with the visitor's address as `replyTo`. Client and server share validation in `src/lib/contact.ts`: all fields are required, the email must be valid, and lengths are limited to 100 characters for names, 254 for email addresses, and 5,000 for messages. The API also rejects invalid JSON and bodies over 32 KiB. It returns safe errors without exposing provider details.
+
+While sending, the form is disabled. Failures preserve the entered values and offer a retry; success resets the form and displays “Message sent successfully” only after Resend accepts the request. This indicates provider acceptance, not confirmed inbox delivery.
+
+### Email configuration
+
+Use `.env.example` as the configuration template. Set these server-only variables in your local environment or hosting provider, then restart the app:
+
+```dotenv
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=chavidunethmika@gmail.com
+CONTACT_FROM_EMAIL="Chavidu Portfolio <onboarding@resend.dev>"
+```
+
+No credentials or `.env.local` are included. All `.env*` files except the blank-key `.env.example` template are ignored by Git. The project builds without email configuration; submissions receive a helpful failure response until it is configured.
+
+Resend's `onboarding@resend.dev` sender is for testing and can send only to the email address associated with your Resend account. Use a sender on your verified domain for production. See [Resend's sender restrictions](https://resend.com/docs/knowledge-base/403-error-resend-dev-domain). Keep the API key private; do not prefix it with `NEXT_PUBLIC_`. Deploy with a Next.js server runtime so `/api/contact` can run.
 
 ## Profile portrait
 
@@ -40,7 +56,10 @@ The image retains its ivory paper background in both themes. The padded outer fr
 
 ```powershell
 npm.cmd run lint
+npm.cmd test
 npm.cmd run build
 ```
 
 The project uses the App Router, TypeScript, Tailwind CSS, and `next-themes`. Design tokens are defined in `src/app/globals.css`.
+
+The contact API tests exercise validation, configuration checks, provider failures, and the outgoing email payload through the real Resend SDK with network calls mocked. They do not send email or require real credentials.
