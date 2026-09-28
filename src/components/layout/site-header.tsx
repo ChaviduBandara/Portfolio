@@ -16,6 +16,7 @@ export function SiteHeader() {
         <div className={styles.controls}>
           <nav className={styles.navigation} aria-label="Main navigation">
             <a className={styles.navLink} href="#about">About</a>
+            <a className={styles.navLink} href="#skills">Skills</a>
             <a className={styles.navLink} href="#projects">Projects</a>
             <a className={styles.navLink} href="#contact">Contact</a>
           </nav>
