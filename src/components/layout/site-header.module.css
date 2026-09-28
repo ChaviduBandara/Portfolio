@@ -114,8 +114,25 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 599px) {
   .name {
     display: none;
+  }
+}
+
+@media (max-width: 399px) {
+  .header {
+    flex-wrap: wrap;
+    padding-block: 0.75rem 0.5rem;
+  }
+
+  .controls {
+    display: contents;
+  }
+
+  .navigation {
+    order: 1;
+    width: 100%;
+    justify-content: space-between;
   }
 }
