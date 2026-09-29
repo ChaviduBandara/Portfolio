@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, GraduationCap } from "lucide-react";
+import { BriefcaseBusiness, GraduationCap, PanelsTopLeft } from "lucide-react";
 import styles from "./about.module.css";
 
 export function About() {
@@ -9,22 +9,19 @@ export function About() {
       aria-labelledby="about-heading"
     >
       <div className={styles.introduction}>
-        <div className={styles.heading}>
+        <div>
           <p className={styles.eyebrow}>About</p>
           <h2 id="about-heading" className={styles.title}>
-            A little about me<span>.</span>
+            A little<br />about me<span>.</span>
           </h2>
         </div>
 
         <div className={styles.copy}>
           <p className={styles.lead}>
-            I’m Chavidu Bandara, a Software Engineering graduate who enjoys building complete web solutions—from responsive, user-friendly frontend interfaces to reliable backend systems and REST APIs.
+            I’m Chavidu, a Software Engineering graduate with experience in full-stack development. I enjoy building complete web solutions—from responsive and user-friendly frontend interfaces using React and Next.js to reliable backend systems and REST APIs using Java and Spring Boot.
           </p>
           <p>
-            I work across both frontend and backend development using technologies such as React, Next.js, Java and Spring Boot. My goal is to create applications that are visually engaging, maintainable, scalable and easy to use.
-          </p>
-          <p>
-            During my internship at Dimensions IT (Pvt) Ltd, I contributed to multiple client-facing projects for both local and international clients, including e-commerce websites, microsites, corporate websites and custom web applications. My work included frontend development, backend functionality, API integration, bug fixes, technical SEO, manual testing and collaboration within Agile teams.
+            During my internship at Dimensions IT (Pvt) Ltd, I contributed to multiple client-facing projects for both local and international clients. My work included frontend development, backend functionality, API integration, feature improvements, bug fixes, technical SEO and manual testing within an Agile environment.
           </p>
           <p>
             I’m also interested in artificial intelligence, machine learning and computer vision. I applied these areas in DairyFusion AI, my final-year project for multimodal yoghurt defect detection.
@@ -58,6 +55,21 @@ export function About() {
             </p>
             <p className={styles.note}>
               <time dateTime="2024-05">May 2024</time>–<time dateTime="2025-06">June 2025</time>
+            </p>
+          </div>
+        </li>
+        <li className={styles.highlight}>
+          <div className={styles.card}>
+            <PanelsTopLeft className={styles.icon} aria-hidden="true" strokeWidth={1.5} />
+            <h3 className={styles.cardTitle}>
+              <span className={styles.metric}>6+</span>{" "}
+              <span className={styles.label}>client web projects</span>
+            </h3>
+            <p className={styles.detail}>
+              Client-facing work across local and international projects
+            </p>
+            <p className={styles.note}>
+              E-commerce websites, microsites, corporate websites and custom web applications.
             </p>
           </div>
         </li>
