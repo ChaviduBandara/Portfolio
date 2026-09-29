@@ -18,7 +18,7 @@ export function About() {
 
         <div className={styles.copy}>
           <p className={styles.lead}>
-            I’m Chavidu, a Software Engineering graduate with experience in full-stack development. I enjoy building complete web solutions—from responsive and user-friendly frontend interfaces using React and Next.js to reliable backend systems and REST APIs using Java and Spring Boot.
+            I’m Chavidu, a Software Engineering graduate with experience in full-stack development. I enjoy building complete web solutions from responsive and user-friendly frontend interfaces using React and Next.js to reliable backend systems and REST APIs using Java and Spring Boot.
           </p>
           <p>
             During my internship at Dimensions IT (Pvt) Ltd, I contributed to multiple client-facing projects for both local and international clients. My work included frontend development, backend functionality, API integration, feature improvements, bug fixes, technical SEO and manual testing within an Agile environment.
