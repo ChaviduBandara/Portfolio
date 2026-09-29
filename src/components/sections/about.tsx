@@ -62,7 +62,7 @@ export function About() {
           <div className={styles.card}>
             <PanelsTopLeft className={styles.icon} aria-hidden="true" strokeWidth={1.5} />
             <h3 className={styles.cardTitle}>
-              <span className={styles.metric}>6+</span>{" "}
+              <span className={styles.metric}>9+</span>{" "}
               <span className={styles.label}>client web projects</span>
             </h3>
             <p className={styles.detail}>
