@@ -67,12 +67,18 @@
   content: "";
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
 .viewProjects {
   display: inline-flex;
   min-height: 3.25rem;
   align-items: center;
   gap: 1.25rem;
-  margin-top: 1.75rem;
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--accent);
   border-radius: 999px;
@@ -81,6 +87,11 @@
   font-size: 0.875rem;
   font-weight: 600;
   transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.downloadResume {
+  background: var(--surface);
+  color: var(--foreground);
 }
 
 .viewProjects:hover,
@@ -100,46 +111,109 @@
 }
 
 .portraitFrame {
-  padding: clamp(0.5rem, 1vw, 0.75rem);
+  position: relative;
+  isolation: isolate;
+  padding: clamp(1.125rem, 2vw, 1.5rem);
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 1.5rem;
-  background: color-mix(in srgb, var(--background) 70%, var(--surface));
+  background: #faf7f2;
+  color: #211a16;
   box-shadow:
     0 12px 32px -16px color-mix(in srgb, var(--accent) 22%, transparent),
     0 0 28px -8px color-mix(in srgb, var(--accent) 10%, transparent);
   transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
 }
 
+.portraitDecoration {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.portraitDecoration path {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
 .portraitImage {
   position: relative;
+  z-index: 1;
+  isolation: isolate;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 0.875rem;
-  /* The paper stays ivory in both themes, inside the theme-aware outer frame. */
-  background: #f7f3eb;
+  background: linear-gradient(145deg, #ffd09a 0%, #ff995e 48%, var(--accent) 100%);
 }
 
 .photo {
   object-fit: contain;
+  filter: grayscale(1) contrast(1.1);
+  mix-blend-mode: multiply;
 }
 
 .caption {
-  padding: 1.25rem 0.25rem 0;
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0.25rem 0;
+  text-align: center;
 }
 
 .captionName {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   font-weight: 550;
   letter-spacing: -0.02em;
 }
 
 .captionRole {
   margin-top: 0.25rem;
-  color: var(--muted);
-  font-size: 0.75rem;
+  color: #716761;
+  font-size: 0.875rem;
+}
+
+.portraitLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.125rem;
+}
+
+.portraitLinks a {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 50%;
+  background: #fff0e8;
+  color: #211a16;
+  transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.portraitLinks a:hover,
+.portraitLinks a:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.portraitLinks a:focus-visible {
+  outline-color: #bf4214;
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .portraitLinks a:hover {
+    transform: translateY(-2px);
+  }
+
   .portraitFrame:hover {
     transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
@@ -204,6 +278,11 @@
   .supportingLine {
     margin-top: 1.75rem;
     font-size: 0.875rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .portraitFrame {
