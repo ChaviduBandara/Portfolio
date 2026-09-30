@@ -106,11 +106,14 @@
 }
 
 .portrait {
-  width: 100%;
+  width: clamp(300px, 28vw, 400px);
+  max-width: 100%;
   min-width: 0;
 }
 
 .portraitFrame {
+  display: grid;
+  aspect-ratio: 3 / 4;
   padding: clamp(0.5rem, 1vw, 0.75rem);
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 1.5rem;
@@ -123,7 +126,7 @@
 
 .portraitImage {
   position: relative;
-  aspect-ratio: 1;
+  min-height: 0;
   overflow: hidden;
   border-radius: 0.875rem;
   /* The paper stays ivory in both themes, inside the theme-aware outer frame. */
@@ -132,6 +135,7 @@
 
 .photo {
   object-fit: contain;
+  object-position: center;
 }
 
 .caption {
@@ -194,7 +198,7 @@
   }
 
   .portrait {
-    max-width: 27.5rem;
+    width: min(85vw, 340px);
     justify-self: center;
   }
 }

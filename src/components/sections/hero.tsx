@@ -8,7 +8,7 @@ export function Hero() {
       <div className={styles.copy}>
         <p className={`${styles.introduction} ${styles.highlight}`}>
           <span className={styles.introDot} aria-hidden="true" />
-          Software Engineer
+          Software Engineer   |   Full Stack Developer
         </p>
         <h1 id="hero-heading" className={styles.headline}>
           <span className={styles.line}>Hi, I’m</span>{" "}
@@ -41,7 +41,7 @@ export function Hero() {
               src="/images/profile-sketch.png"
               alt="Pencil sketch portrait of Chavidu Bandara"
               fill
-              sizes="(min-width: 1192px) 390px, (min-width: 960px) 33vw, (min-width: 480px) 422px, calc(100vw - 58px)"
+              sizes="(min-width: 1429px) 374px, (min-width: 1072px) calc(28vw - 26px), (min-width: 960px) 280px, (min-width: 400px) 322px, calc(85vw - 18px)"
               loading="eager"
               fetchPriority="high"
               className={styles.photo}
