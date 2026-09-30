@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { ArrowDownRight, Download, Mail } from "lucide-react";
-import { Github, Linkedin } from "@/components/ui/social-icons";
+import { ArrowDownRight, Download } from "lucide-react";
 import styles from "./hero.module.css";
 
 export function Hero() {
@@ -35,60 +34,25 @@ export function Hero() {
         </div>
       </div>
 
-      <div className={styles.portrait}>
-        <figure className={styles.portraitFrame}>
-          <svg
-            className={styles.portraitDecoration}
-            viewBox="0 0 400 560"
-            preserveAspectRatio="none"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path d="M160 10C110 16 70 4 28 10S10 16 10 44C16 104 4 164 10 224S16 260 10 278" />
-            <path d="M390 240C382 308 398 382 390 458L390 524Q390 548 366 548C320 552 290 544 254 548" />
-          </svg>
+      <figure className={styles.portrait}>
+        <div className={styles.portraitFrame}>
           <div className={styles.portraitImage}>
             <Image
               src="/images/profile-sketch.png"
               alt="Pencil sketch portrait of Chavidu Bandara"
               fill
-              sizes="(min-width: 1192px) 362px, (min-width: 960px) 33vw, (min-width: 480px) 390px, calc(100vw - 78px)"
+              sizes="(min-width: 1192px) 390px, (min-width: 960px) 33vw, (min-width: 480px) 422px, calc(100vw - 58px)"
               loading="eager"
               fetchPriority="high"
               className={styles.photo}
             />
           </div>
-          <figcaption className={styles.caption}>
-            <p className={styles.captionName}>Chavidu Bandara</p>
-            <p className={styles.captionRole}>Software Engineer</p>
-            <div className={styles.portraitLinks}>
-              <a
-                href="https://github.com/ChaviduBandara"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chavidu Bandara on GitHub (opens in a new tab)"
-              >
-                <Github size={18} aria-hidden="true" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/chavidu-bandara/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chavidu Bandara on LinkedIn (opens in a new tab)"
-              >
-                <Linkedin size={18} aria-hidden="true" />
-              </a>
-              <a
-                href="#contact"
-                aria-label="Contact Chavidu Bandara at chavidunethmika@gmail.com"
-              >
-                <Mail size={18} aria-hidden="true" />
-              </a>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
+        </div>
+        <figcaption className={styles.caption}>
+          <p className={styles.captionName}>Chavidu Bandara</p>
+          <p className={styles.captionRole}>Software Engineer</p>
+        </figcaption>
+      </figure>
     </section>
   );
 }
