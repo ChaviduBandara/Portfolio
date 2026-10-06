@@ -23,6 +23,16 @@
   background-size: 24px 24px;
 }
 
+.imageVisual {
+  background-color: var(--background);
+  background-image: none;
+}
+
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
 .visualLabel,
 .number {
   position: absolute;

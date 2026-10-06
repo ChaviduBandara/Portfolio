@@ -1,4 +1,5 @@
 import type { Ref } from "react";
+import Image from "next/image";
 import { Boxes, Coffee, Database, Hand, ScanLine, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
 import styles from "./project-card.module.css";
@@ -29,16 +30,28 @@ export function ProjectCard({ project, number, ref }: ProjectCardProps) {
       aria-labelledby={`${project.id}-title`}
       aria-describedby={`${project.id}-description`}
     >
-      <div className={`${styles.visual} ${styles[project.visual]}`} aria-hidden="true">
-        <span className={styles.visualLabel}>Concept illustration</span>
-        <div className={styles.scene}>
-          <span className={styles.shapeOne} />
-          <span className={styles.shapeTwo} />
-          <span className={styles.shapeThree} />
-          <Icon className={styles.glyph} strokeWidth={1.25} />
+      {project.image ? (
+        <div className={`${styles.visual} ${styles.imageVisual}`}>
+          <Image
+            src={project.image.src}
+            alt={project.image.alt}
+            fill
+            sizes="(max-width: 699px) calc(100vw - 40px), (max-width: 959px) calc((100vw - 64px) / 2), (max-width: 1192px) calc((100vw - 88px) / 3), 368px"
+            className={styles.image}
+          />
         </div>
-        <span className={styles.number}>{String(number).padStart(2, "0")}</span>
-      </div>
+      ) : (
+        <div className={`${styles.visual} ${styles[project.visual]}`} aria-hidden="true">
+          <span className={styles.visualLabel}>Concept illustration</span>
+          <div className={styles.scene}>
+            <span className={styles.shapeOne} />
+            <span className={styles.shapeTwo} />
+            <span className={styles.shapeThree} />
+            <Icon className={styles.glyph} strokeWidth={1.25} />
+          </div>
+          <span className={styles.number}>{String(number).padStart(2, "0")}</span>
+        </div>
+      )}
       <div className={styles.content}>
         <h3 id={`${project.id}-title`} className={styles.title}>
           {project.title}
