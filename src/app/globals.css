@@ -13,6 +13,12 @@
   --accent-soft: #fff0e8;
   --border: #e9e1da;
   --input-border: #92837a;
+  /* Shared secondary-text scale; headings and controls keep their own sizes. */
+  --font-size-micro: 0.75rem;
+  --font-size-caption: 0.8125rem;
+  --font-size-small: 0.875rem;
+  --font-size-secondary: 0.9375rem;
+  --font-size-body: 1rem;
 }
 
 [data-theme="dark"] {

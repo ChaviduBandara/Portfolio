@@ -48,10 +48,7 @@ export function Hero() {
             />
           </div>
         </div>
-        <figcaption className={styles.caption}>
-          <p className={styles.captionName}>Chavidu Bandara</p>
-          <p className={styles.captionRole}>Software Engineer</p>
-        </figcaption>
+        
       </figure>
     </section>
   );
