@@ -25,7 +25,7 @@ export function Hero() {
           </a>
           <a
             href="/documents/chavidu-bandara-resume.pdf"
-            download
+            download="Chavidu-Bandara-Resume.pdf"
             className={`${styles.viewProjects} ${styles.downloadResume}`}
           >
             Download Resume
