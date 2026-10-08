@@ -262,14 +262,22 @@
   overflow-wrap: anywhere;
 }
 
-.liveLink {
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.liveLink,
+.repositoryLink {
   display: inline-flex;
   min-height: 2.75rem;
   align-self: flex-start;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1.25rem;
   padding: 0.625rem 1rem;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -281,12 +289,22 @@
   transition: border-color 200ms ease, background 200ms ease;
 }
 
+.repositoryLink {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  padding: 0;
+  color: var(--accent-ink);
+}
+
 .liveLink svg {
   color: var(--accent);
 }
 
 .liveLink:hover,
-.liveLink:focus-visible {
+.liveLink:focus-visible,
+.repositoryLink:hover,
+.repositoryLink:focus-visible {
   border-color: var(--accent);
   background: var(--accent-soft);
 }

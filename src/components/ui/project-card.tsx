@@ -2,6 +2,7 @@ import type { Ref } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Boxes, Database, Hand, ScanLine, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
+import { Github } from "@/components/ui/social-icons";
 import styles from "./project-card.module.css";
 
 const visualIcons = {
@@ -69,17 +70,33 @@ export function ProjectCard({ project, number, ref }: ProjectCardProps) {
             <li key={technology}>{technology}</li>
           ))}
         </ul>
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.liveLink}
-            aria-label={`Live website for ${project.title} (opens in a new tab)`}
-          >
-            Live website
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+        {(project.liveUrl || project.repositoryUrl) && (
+          <div className={styles.actions}>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.liveLink}
+                aria-label={`Live website for ${project.title} (opens in a new tab)`}
+              >
+                Live website
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            )}
+            {project.repositoryUrl && (
+              <a
+                href={project.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.repositoryLink}
+                aria-label={`View ${project.title} on GitHub`}
+                title={`View ${project.title} on GitHub`}
+              >
+                <Github size={19} aria-hidden="true" />
+              </a>
+            )}
+          </div>
         )}
       </div>
     </article>

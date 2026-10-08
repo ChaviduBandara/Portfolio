@@ -3,6 +3,7 @@ export type Project = {
   title: string;
   subtitle?: string;
   liveUrl?: string;
+  repositoryUrl?: string;
   description: string;
   technologies: readonly string[];
   image?: {
@@ -15,6 +16,7 @@ export type Project = {
 export const projects: readonly Project[] = [
   {
     id: "stockpilot",
+    repositoryUrl: "https://github.com/ChaviduBandara/Stockpilot",
     title: "StockPilot",
     subtitle: "Inventory and Order Management System",
     description: "A full-stack application for managing products, categories, customers, orders, and stock quantities.",
@@ -27,6 +29,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "dairyfusion-ai",
+    repositoryUrl: "https://github.com/ChaviduBandara/DairyFusion-AI",
     title: "DairyFusion AI",
     subtitle: "Yoghurt Cup Defect Detection",
     description: "A quality inspection system combining computer vision and IoT sensor data to detect defects in yoghurt cups.",
@@ -39,6 +42,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "patient-management",
+    repositoryUrl: "https://github.com/ChaviduBandara/Thread-Safe-Hospital-Management-System-",
     title: "Thread-Safe Patient Management System",
     description: "An A&E simulation with continuous patient arrivals, shift rotation, consultant matching, and thread-safe processing.",
     technologies: ["Java", "Concurrent Programming"],
@@ -50,6 +54,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "gesturesway",
+    repositoryUrl: "https://github.com/SachinAbeywickrama/GestureSway-Backend",
     title: "GestureSway",
     subtitle: "Hand Gesture Snake Game",
     description: "A web-based snake game controlled through hand gestures, designed with accessible interaction in mind.",
@@ -62,6 +67,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "student-database",
+    repositoryUrl: "https://github.com/ChaviduBandara/Web-Based-Student-Database-Management-System",
     title: "Student Database Management System",
     description: "A CRUD application for creating, viewing, updating, and deleting student records.",
     technologies: ["Java", "Spring Boot", "React", "MySQL"],
