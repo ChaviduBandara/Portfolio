@@ -66,6 +66,10 @@ export const projects: readonly Project[] = [
     description: "A CRUD application for creating, viewing, updating, and deleting student records.",
     technologies: ["Java", "Spring Boot", "React", "MySQL"],
     visual: "records",
+    image: {
+      src: "/images/student-management.png",
+      alt: "Student Management System project cover",
+    },
   },
   {
     id: "wayamba-ply-industries",
@@ -75,5 +79,9 @@ export const projects: readonly Project[] = [
     description: "Responsive single-page website for a plywood manufacturer in Sri Lanka. Includes product showcases, certification reports, interactive FAQs, and Google Maps integration with mobile-friendly layouts and on-page SEO optimisation.",
     technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
     visual: "inventory",
+    image: {
+      src: "/images/wayamba-ply.png",
+      alt: "Wayamba Ply Industries website homepage",
+    },
   },
 ];
