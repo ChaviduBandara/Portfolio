@@ -1,6 +1,6 @@
 import type { Ref } from "react";
 import Image from "next/image";
-import { Boxes, Coffee, Database, Hand, ScanLine, Workflow } from "lucide-react";
+import { ArrowUpRight, Boxes, Database, Hand, ScanLine, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
 import styles from "./project-card.module.css";
 
@@ -10,7 +10,6 @@ const visualIcons = {
   threads: Workflow,
   gesture: Hand,
   records: Database,
-  cafe: Coffee,
 };
 
 type ProjectCardProps = {
@@ -70,6 +69,18 @@ export function ProjectCard({ project, number, ref }: ProjectCardProps) {
             <li key={technology}>{technology}</li>
           ))}
         </ul>
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.liveLink}
+            aria-label={`Live website for ${project.title} (opens in a new tab)`}
+          >
+            Live website
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        )}
       </div>
     </article>
   );

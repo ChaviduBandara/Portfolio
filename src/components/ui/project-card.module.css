@@ -211,27 +211,6 @@
   background: color-mix(in srgb, var(--accent) 20%, var(--surface));
 }
 
-/* Warm concentric forms, inspired by a cup and saucer. */
-.cafe .shapeOne {
-  inset: 0 30px;
-  border-radius: 50%;
-}
-
-.cafe .shapeTwo {
-  inset: 15px 45px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
-}
-
-.cafe .shapeThree {
-  top: 112px;
-  left: 22px;
-  width: 156px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--surface);
-}
-
 .content {
   display: flex;
   height: 100%;
@@ -281,6 +260,35 @@
   font-size: var(--font-size-caption);
   line-height: 1.5;
   overflow-wrap: anywhere;
+}
+
+.liveLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: var(--font-size-small);
+  font-weight: 550;
+  line-height: 1.5;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.liveLink svg {
+  color: var(--accent);
+}
+
+.liveLink:hover,
+.liveLink:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .card:focus-visible {

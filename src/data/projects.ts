@@ -2,13 +2,14 @@ export type Project = {
   id: string;
   title: string;
   subtitle?: string;
+  liveUrl?: string;
   description: string;
   technologies: readonly string[];
   image?: {
     src: string;
     alt: string;
   };
-  visual: "inventory" | "inspection" | "threads" | "gesture" | "records" | "cafe";
+  visual: "inventory" | "inspection" | "threads" | "gesture" | "records";
 };
 
 export const projects: readonly Project[] = [
@@ -67,11 +68,12 @@ export const projects: readonly Project[] = [
     visual: "records",
   },
   {
-    id: "wild-cafe-ella",
-    title: "Wild Cafe Ella",
-    subtitle: "Restaurant Website",
-    description: "A responsive restaurant website with menu, gallery, contact pages, and on-page SEO.",
+    id: "wayamba-ply-industries",
+    title: "Wayamba Ply Industries - Manufacturing Website",
+    subtitle: "Freelance project",
+    liveUrl: "https://wayambaply.lk/",
+    description: "Responsive single-page website for a plywood manufacturer in Sri Lanka. Includes product showcases, certification reports, interactive FAQs, and Google Maps integration with mobile-friendly layouts and on-page SEO optimisation.",
     technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-    visual: "cafe",
+    visual: "inventory",
   },
 ];
