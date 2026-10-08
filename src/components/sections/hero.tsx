@@ -24,7 +24,7 @@ export function Hero() {
             <ArrowDownRight size={18} aria-hidden="true" />
           </a>
           <a
-            href="/documents/chavidu-bandara-resume.pdf"
+            href="/documents/chavidu-bandara-resume-2026-10-08.pdf"
             download="Chavidu-Bandara-Resume.pdf"
             className={`${styles.viewProjects} ${styles.downloadResume}`}
           >
