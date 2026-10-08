@@ -1,0 +1,42 @@
+.character {
+  position: relative;
+}
+
+/* Inline characters keep the full text's width, natural wrapping and line height.
+   CSS completes the reveal even if hydration never initializes. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .heading:not([data-complete]) .character {
+    animation: reveal 1ms var(--character-delay) linear both;
+  }
+
+  .heading:not([data-complete]) .character[data-cursor]::after {
+    position: absolute;
+    top: 0.12em;
+    bottom: 0.08em;
+    right: -0.035em;
+    width: 2px;
+    border-radius: 1px;
+    background: var(--accent);
+    visibility: hidden;
+    pointer-events: none;
+    content: "";
+    animation:
+      cursor-window var(--cursor-duration) var(--character-delay) linear forwards,
+      blink 800ms ease-in-out 3;
+  }
+}
+
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cursor-window {
+  0%, 90% { visibility: visible; }
+  95%, 100% { visibility: hidden; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}

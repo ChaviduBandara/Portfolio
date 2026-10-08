@@ -1,4 +1,5 @@
 import { BriefcaseBusiness, GraduationCap, PanelsTopLeft } from "lucide-react";
+import { CountUpStatistic } from "@/components/ui/count-up-statistic";
 import styles from "./about.module.css";
 
 export function About() {
@@ -59,10 +60,10 @@ export function About() {
           </div>
         </li>
         <li className={styles.highlight}>
-          <div className={styles.card}>
+          <div className={styles.card} data-count-card>
             <PanelsTopLeft className={styles.icon} aria-hidden="true" strokeWidth={1.5} />
             <h3 className={styles.cardTitle}>
-              <span className={styles.metric}>9+</span>{" "}
+              <span className={styles.metric}><CountUpStatistic value={9} /></span>{" "}
               <span className={styles.label}>client web projects</span>
             </h3>
             <p className={styles.detail}>

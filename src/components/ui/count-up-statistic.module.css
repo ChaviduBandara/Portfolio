@@ -1,0 +1,40 @@
+.statistic {
+  position: relative;
+  display: inline-block;
+}
+
+.number {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+/* Briefly reserve the final value while hydration prepares the observer.
+   If initialization fails, CSS restores the readable final value on its own. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .statistic:not([data-state]) .final {
+    animation: show-fallback 0s 3s both;
+  }
+
+  .statistic:not([data-state]) .number {
+    animation: hide-placeholder 0s 3s both;
+  }
+
+  .statistic:is([data-state="waiting"], [data-state="running"]) .final {
+    visibility: hidden;
+  }
+
+  .statistic:is([data-state="waiting"], [data-state="running"]) .number {
+    visibility: visible;
+  }
+}
+
+@keyframes show-fallback {
+  from { visibility: hidden; }
+  to { visibility: visible; }
+}
+
+@keyframes hide-placeholder {
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}

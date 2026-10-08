@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowDownRight, Download } from "lucide-react";
+import { TypewriterHeading } from "@/components/ui/typewriter-heading";
 import styles from "./hero.module.css";
 
 export function Hero() {
@@ -10,11 +11,12 @@ export function Hero() {
           <span className={styles.introDot} aria-hidden="true" />
           Software Engineer   |   Full Stack Developer
         </p>
-        <h1 id="hero-heading" className={styles.headline}>
-          <span className={styles.line}>Hi, I’m</span>{" "}
-          <span className={styles.line}>Chavidu</span>{" "}
-          <span className={styles.line}>Bandara.</span>
-        </h1>
+        <TypewriterHeading
+          id="hero-heading"
+          className={styles.headline}
+          lineClassName={styles.line}
+          lines={["Hi, I’m", "Chavidu", "Bandara."]}
+        />
         <p className={styles.supportingLine}>
           Full-stack developer building responsive frontend experiences, scalable backend systems and intelligent applications from modern web platforms to AI-powered computer vision solutions.
         </p>
