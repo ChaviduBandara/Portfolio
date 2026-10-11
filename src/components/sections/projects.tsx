@@ -28,7 +28,7 @@ export function Projects() {
       <div className={styles.heading}>
         <p className={styles.eyebrow}>Projects</p>
         <h2 id="projects-heading" className={styles.title}>
-          Portfolio Showcase<span>.</span>
+          Projects<span>.</span>
         </h2>
         <p className={styles.introduction}>
           A selection of work across full-stack development, AI, and the web.
