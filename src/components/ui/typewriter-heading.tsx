@@ -1,7 +1,6 @@
 "use client";
 
-import { Fragment, useLayoutEffect, useRef, useState } from "react";
-import { Pause, Play } from "lucide-react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import styles from "./typewriter-heading.module.css";
 
 type TypewriterHeadingProps = {
@@ -22,9 +21,6 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
   const wrapper = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const cursor = useRef<HTMLSpanElement>(null);
-  const playback = useRef<{ setPaused: (paused: boolean) => void } | null>(null);
-  const userPaused = useRef(false);
-  const [paused, setPaused] = useState(false);
   const text = lines.join(" ");
 
   useLayoutEffect(() => {
@@ -73,7 +69,7 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
     };
 
     const sync = () => {
-      if (disposed || userPaused.current || motion.matches || !visible || document.hidden) {
+      if (disposed || motion.matches || !visible || document.hidden) {
         stop();
         return;
       }
@@ -83,7 +79,7 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
       timer = window.setTimeout(() => {
         timer = undefined;
         remaining = 0;
-        if (disposed || userPaused.current || motion.matches || !visible || document.hidden) {
+        if (disposed || motion.matches || !visible || document.hidden) {
           sync();
           return;
         }
@@ -130,7 +126,6 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
       window.addEventListener("resize", positionCursor);
       document.addEventListener("visibilitychange", sync);
       motion.addEventListener("change", onMotionChange);
-      playback.current = { setPaused: (value) => { userPaused.current = value; sync(); } };
       render();
       container.dataset.ready = "true";
       onMotionChange();
@@ -140,7 +135,6 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
       stop();
       observer?.disconnect();
       resizeObserver?.disconnect();
-      playback.current = null;
       container.dataset.fallback = "true";
       delete container.dataset.ready;
     }
@@ -153,18 +147,10 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
       window.removeEventListener("resize", positionCursor);
       document.removeEventListener("visibilitychange", sync);
       motion.removeEventListener("change", onMotionChange);
-      playback.current = null;
       delete container.dataset.ready;
       delete container.dataset.fallback;
     };
   }, [text]);
-
-  const togglePaused = () => {
-    const next = !userPaused.current;
-    userPaused.current = next;
-    setPaused(next);
-    playback.current?.setPaused(next);
-  };
 
   return (
     <div ref={wrapper} className={styles.wrapper}>
@@ -186,17 +172,6 @@ export function TypewriterHeading({ id, className, lineClassName, lines }: Typew
         })}
         <span ref={cursor} className={styles.cursor} aria-hidden="true" />
       </h1>
-      <button
-        type="button"
-        className={styles.control}
-        onClick={togglePaused}
-        aria-controls={id}
-        aria-label={paused ? "Resume typing animation" : "Pause typing animation"}
-        title={paused ? "Resume typing animation" : "Pause typing animation"}
-      >
-        {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
-        {paused ? "Resume typing" : "Pause typing"}
-      </button>
     </div>
   );
 }
