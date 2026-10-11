@@ -1,39 +1,73 @@
+.wrapper,
+.heading,
 .character {
   position: relative;
 }
 
-/* Inline characters keep the full text's width, natural wrapping and line height.
-   CSS completes the reveal even if hydration never initializes. */
+.cursor {
+  position: absolute;
+  width: 2px;
+  height: 0.85em;
+  margin-top: 0.12em;
+  border-radius: 1px;
+  background: var(--accent);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.control {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  min-height: 1.5rem;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--font-size-caption);
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.control:hover,
+.control:focus-visible {
+  border-color: var(--border);
+  color: var(--accent-ink);
+}
+
 @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
-  .heading:not([data-complete]) .character {
-    animation: reveal 1ms var(--character-delay) linear both;
+  /* Avoid a flash before hydration; failed initialization restores the text. */
+  .wrapper:not([data-ready]):not([data-fallback]) .character {
+    animation: fallback 0s 3s both;
   }
 
-  .heading:not([data-complete]) .character[data-cursor]::after {
-    position: absolute;
-    top: 0.12em;
-    bottom: 0.08em;
-    right: -0.035em;
-    width: 2px;
-    border-radius: 1px;
-    background: var(--accent);
-    visibility: hidden;
-    pointer-events: none;
-    content: "";
-    animation:
-      cursor-window var(--cursor-duration) var(--character-delay) linear forwards,
-      blink 800ms ease-in-out 3;
+  .wrapper[data-ready] .character[data-visible="false"] {
+    opacity: 0;
+  }
+
+  .wrapper[data-ready] .control {
+    display: inline-flex;
+  }
+
+  .wrapper[data-ready] .cursor {
+    animation: blink 800ms ease-in-out infinite paused;
+  }
+
+  .wrapper[data-running="true"]:is([data-phase="typing"], [data-phase="deleting"]) .cursor {
+    visibility: visible;
+    animation-play-state: running;
   }
 }
 
-@keyframes reveal {
+@keyframes fallback {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes cursor-window {
-  0%, 90% { visibility: visible; }
-  95%, 100% { visibility: hidden; }
 }
 
 @keyframes blink {
