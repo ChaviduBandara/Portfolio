@@ -14,16 +14,27 @@
   border-radius: 0.25rem;
 }
 
-.monogram {
-  font-size: 2rem;
-  font-weight: 650;
-  line-height: 1;
-  letter-spacing: -0.09em;
+.avatar {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
   transition: transform 200ms ease;
 }
 
-.monogram span {
-  color: var(--accent);
+.avatarImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  /* Frame the face within the avatar without changing the shared image. */
+  transform: scale(1.7);
+  transform-origin: 54% top;
 }
 
 .name {
@@ -90,7 +101,7 @@
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .brand:hover .monogram {
+  .brand:hover .avatar {
     transform: rotate(-5deg);
   }
 }
