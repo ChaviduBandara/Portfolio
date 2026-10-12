@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
+import { Education } from "@/components/sections/education";
 import { Hero } from "@/components/sections/hero";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
@@ -15,6 +16,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <Education />
         <Contact />
       </main>
       <SiteFooter />

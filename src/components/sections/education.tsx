@@ -47,7 +47,7 @@ export function Education() {
   }, []);
 
   return (
-    <section id="education" className={styles.education} aria-labelledby="education-heading">
+    <section id="education" className={`page-container ${styles.education}`} aria-labelledby="education-heading">
       <h2 id="education-heading" className={styles.title}>
         <GraduationCap aria-hidden="true" strokeWidth={1.5} />
         <span>Education Journey</span>
@@ -64,9 +64,10 @@ export function Education() {
                 </div>
                 <div className={styles.details}>
                   <h3 id={`education-${entry.id}`} className={styles.institution}>{entry.institution}</h3>
+                  {entry.level && <p className={styles.supportingDetail}>{entry.level}</p>}
                   <p className={styles.qualification}>{entry.qualification}</p>
-                  {entry.affiliation && <p className={styles.affiliation}>{entry.affiliation}</p>}
                   {entry.achievement && <p className={styles.achievement}>{entry.achievement}</p>}
+                  {entry.detail && <p className={styles.supportingDetail}>{entry.detail}</p>}
                   <p className={styles.dates}>
                     <CalendarDays size={16} aria-hidden="true" strokeWidth={1.5} />
                     <span>
