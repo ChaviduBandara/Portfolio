@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, GraduationCap, PanelsTopLeft } from "lucide-react";
 import { CountUpStatistic } from "@/components/ui/count-up-statistic";
+import { Education } from "./education";
 import styles from "./about.module.css";
 
 export function About() {
@@ -75,6 +76,7 @@ export function About() {
           </div>
         </li>
       </ul>
+      <Education />
     </section>
   );
 }

@@ -1,0 +1,183 @@
+.education {
+  margin-top: clamp(3.5rem, 6vw, 5rem);
+  scroll-margin-top: 2rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  margin-bottom: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 450;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  text-align: center;
+}
+
+.title > svg {
+  width: 0.9em;
+  height: 0.9em;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.title > span {
+  min-width: 0;
+}
+
+.timeline {
+  --card-padding: 2rem;
+  --icon-size: 3.5rem;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* Only the gaps expose the line; opaque cards keep it away from their text. */
+.timeline::before {
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--card-padding) + var(--icon-size) / 2);
+  bottom: calc(var(--card-padding) + var(--icon-size) / 2);
+  left: calc(3px + var(--card-padding) + var(--icon-size) / 2 - 1px);
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.45;
+  content: "";
+}
+
+.entry {
+  min-width: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: var(--icon-size) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  box-shadow: 0 8px 24px -20px color-mix(in srgb, var(--foreground) 25%, transparent);
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.icon {
+  display: grid;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.icon > svg {
+  width: 50%;
+  height: 50%;
+}
+
+.details {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.institution {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 550;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.qualification {
+  margin-top: 0.5rem;
+  font-size: var(--font-size-body);
+  line-height: 1.65;
+}
+
+.affiliation {
+  margin-top: 0.375rem;
+  color: var(--muted);
+  font-size: var(--font-size-small);
+  line-height: 1.7;
+}
+
+.achievement {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.5rem;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.dates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+}
+
+.dates > svg {
+  flex-shrink: 0;
+  color: var(--accent-ink);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+    border-left-color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Content stays readable without JavaScript; entrance runs once on entry. */
+  .entry[data-entered="true"] {
+    animation: arrive 550ms var(--entry-delay) cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px -20px color-mix(in srgb, var(--foreground) 25%, transparent);
+    }
+  }
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 699px) {
+  .title {
+    gap: 0.625rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline {
+    --card-padding: 1.25rem;
+    --icon-size: 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .card {
+    gap: 1rem;
+  }
+
+  .qualification {
+    font-size: var(--font-size-secondary);
+  }
+}
