@@ -23,8 +23,8 @@ export const projects: readonly Project[] = [
     technologies: ["Java", "Spring Boot", "React", "MySQL", "REST APIs"],
     visual: "inventory",
     image: {
-      src: "/images/stockpilot.png",
-      alt: "StockPilot dashboard displayed on a laptop, showing inventory totals, recent orders and sales overview.",
+      src: "/images/stockpilot-dashboard.png",
+      alt: "StockPilot inventory dashboard",
     },
   },
   {
